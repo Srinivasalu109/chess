@@ -2,13 +2,11 @@ import logo from './logo.svg';
 import './App.css';
 import "./styles/chess.css"
 import { useState, useEffect } from "react"
-import {useHistory} from  "react-router-dom"
 import { board, possibilities, empty_board } from './possibilities/possibilities';
 import { movePosition, black_coins, white_coins } from './movePosition/movePosition';
 var currentValue_i = "", currentValue_j = "", allPossibilities = [], currentPlayer = "", currenElement, u, v, specialBoard = board
 function App() {
   console.log(board)
-  const history=useHistory()
   const [gameBoard, setBoard] = useState(specialBoard)
   const [posibility, setPosibility] = useState(empty_board)
   const [winner, setWinner] = useState("")
@@ -41,7 +39,7 @@ function App() {
       [" ", " ", " ", " ", " ", " ", " ", " "],
       ["♟", "♟", "♟", "♟", "♟", "♟", "♟", "♟"],
       ["♜", "♞", "♝", "♛", "♚", "♝", "♞", "♜"],])
-
+      setFlag(false)
       setIsGameOver(true)
 
     }
@@ -56,6 +54,7 @@ function App() {
       ["♟", "♟", "♟", "♟", "♟", "♟", "♟", "♟"],
       ["♜", "♞", "♝", "♛", "♚", "♝", "♞", "♜"],])
       console.log(gameBoard)
+      setFlag(false)
       setIsGameOver(true)
     }
     else {
@@ -128,8 +127,7 @@ function App() {
       return;
     }
     if(isGameOver){
-      console.log("gooooooooooloood")
-      history.push(`/winner/${specialBoard}`)
+      console.log()
     }
 
     setFlag(true)
@@ -137,7 +135,7 @@ function App() {
   }, [change,isGameOver])
   return (
 
-    <div  >
+    <div  className="board">
       <h3 className="winner">{winner}</h3>
       {gameBoard.map((row, i) => <div key={i} className="displayRow">{
         row.map((col, j) => {
