@@ -1,0 +1,41 @@
+
+.board-grid1{
+    background-color: #e88e27;
+    height: 70px;
+    width: 70px;
+    min-width: 40px;
+    border:solid 1px black ;
+    font-size: 50px;
+}
+.board-grid2{
+    background-color: #f7cfa1;
+    height: 70px;
+    width: 70px;
+    border:solid 1px black ;
+    min-width: 40px;
+
+    font-size: 50px;
+
+}
+.displayRow{
+    display:flex;
+}
+.changeColor{
+    background-color:#07f05c;
+    height: 70px;
+    width: 70px;
+    border:solid 1px black ;
+    font-size: 50px;
+    min-width: 40px;
+
+}
+.App{
+    margin-left: 350px;
+}
+.winner{
+    margin:0px;
+    margin-right: 400px;
+    padding:0px; 
+    font-family: 'Courier New', Courier, monospace;
+    
+}
