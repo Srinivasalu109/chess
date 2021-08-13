@@ -1,21 +1,22 @@
-
 .board-grid1{
     background-color: #e88e27;
     height: 70px;
     width: 70px;
-    min-width: 40px;
+    min-width: 30px;
+    min-height: 40px;
     border:solid 1px black ;
-    font-size: 50px;
+    font-size: 3rem;
+    text-align: center;
 }
 .board-grid2{
     background-color: #f7cfa1;
     height: 70px;
     width: 70px;
     border:solid 1px black ;
-    min-width: 40px;
-
-    font-size: 50px;
-
+    min-width: 30px;
+    min-height: 30px;
+    font-size: 3rem;
+    text-align: center;
 }
 .displayRow{
     display:flex;
@@ -25,8 +26,10 @@
     height: 70px;
     width: 70px;
     border:solid 1px black ;
-    font-size: 50px;
-    min-width: 40px;
+    font-size: 3rem;
+    min-width: 30px;
+    min-height: 30px;
+    text-align: center;
 
 }
 .App{
@@ -40,7 +43,9 @@
     
 }
 .board{
-    margin-left:25%;
-    margin-right:25%
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:auto;
+    margin-bottom:auto;
 
 }

@@ -1,12 +1,12 @@
 import logo from './logo.svg';
-import './App.css';
+import { useHistory } from "react-router";
 import "./styles/chess.css"
 import { useState, useEffect } from "react"
 import { board, possibilities, empty_board } from './possibilities/possibilities';
 import { movePosition, black_coins, white_coins } from './movePosition/movePosition';
 var currentValue_i = "", currentValue_j = "", allPossibilities = [], currentPlayer = "", currenElement, u, v, specialBoard = board
 function App() {
-  console.log(board)
+  const history=useHistory()
   const [gameBoard, setBoard] = useState(specialBoard)
   const [posibility, setPosibility] = useState(empty_board)
   const [winner, setWinner] = useState("")
@@ -14,7 +14,7 @@ function App() {
   const [change, setChange] = useState(0)
   const [triggerUseEffect, setTriggerUseEffect] = useState(0)
   const [flag, setFlag] = useState(false)
-  const [isGameOver, setIsGameOver] = useState(false)
+  const[isGameOver,setIsGameOver]=useState(false)
   const changePosition = (i, j) => {
     if (i === currentValue_i && j === currentValue_j) {
       setBoard(board)
@@ -31,6 +31,7 @@ function App() {
     specialBoard = movePosition(currentValue_i, currentValue_j, i, j, gameBoard, currentPlayer)
     if (specialBoard === "black wins") {
       setWinner("black wins")
+    specialBoard="llll"
       setBoard([["♖", "♘", "♗", "♕", "♔", "♗", "♘", "♖"],
       ["♙", "♙", "♙", "♙", "♙", "♙", "♙", "♙"],
       [" ", " ", " ", " ", " ", " ", " ", " "],
@@ -41,7 +42,6 @@ function App() {
       ["♜", "♞", "♝", "♛", "♚", "♝", "♞", "♜"],])
       setFlag(false)
       setIsGameOver(true)
-
     }
     else if (specialBoard === "white wins") {
       setWinner("white wins")
@@ -53,12 +53,8 @@ function App() {
       [" ", " ", " ", " ", " ", " ", " ", " "],
       ["♟", "♟", "♟", "♟", "♟", "♟", "♟", "♟"],
       ["♜", "♞", "♝", "♛", "♚", "♝", "♞", "♜"],])
-      console.log(gameBoard)
       setFlag(false)
       setIsGameOver(true)
-    }
-    else {
-      setBoard(specialBoard)
     }
 
     setPosibility([[" ", " ", " ", " ", " ", " ", " ", " "],
@@ -82,7 +78,6 @@ function App() {
           v = j
           currentPlayer = "black_player"
           console.log(empty_board.slice())
-
           setPosibility([[" ", " ", " ", " ", " ", " ", " ", " "],
           [" ", " ", " ", " ", " ", " ", " ", " "],
           [" ", " ", " ", " ", " ", " ", " ", " "],
@@ -115,7 +110,6 @@ function App() {
     }
   }
   useEffect(() => {
-
     if (flag) {
       currentValue_i = u
       currentValue_j = v
@@ -126,20 +120,13 @@ function App() {
       }
       return;
     }
-    if(isGameOver){
-      console.log()
-    }
-
     setFlag(true)
-
   }, [change,isGameOver])
   return (
-
     <div  className="board">
       <h3 className="winner">{winner}</h3>
       {gameBoard.map((row, i) => <div key={i} className="displayRow">{
         row.map((col, j) => {
-
           if ((j + i) % 2 === 0) {
             if (posibility[i][j] === "yes") {
               return <div className="changeColor" onClick={() => changePosition(i, j)} key={j}>{board[i][j]}</div>
@@ -151,10 +138,7 @@ function App() {
               return <div className="changeColor" onClick={() => changePosition(i, j)} key={j}>{board[i][j]}</div>
             }
             return <div className="board-grid2" onClick={() => handleClick(col, i, j)} key={j}>{board[i][j]}</div>
-
           }
-
-
         })
       }
       </div>)
