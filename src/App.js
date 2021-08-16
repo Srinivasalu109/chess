@@ -1,12 +1,10 @@
 import logo from './logo.svg';
-import { useHistory } from "react-router";
 import "./styles/chess.css"
 import { useState, useEffect } from "react"
 import { board, possibilities, empty_board } from './possibilities/possibilities';
 import { movePosition, black_coins, white_coins } from './movePosition/movePosition';
 var currentValue_i = "", currentValue_j = "", allPossibilities = [], currentPlayer = "", currenElement, u, v, specialBoard = board
 function App() {
-  const history=useHistory()
   const [gameBoard, setBoard] = useState(specialBoard)
   const [posibility, setPosibility] = useState(empty_board)
   const [winner, setWinner] = useState("")
