@@ -16,6 +16,7 @@ function App() {
   const changePosition = (i, j) => {
     if (i === currentValue_i && j === currentValue_j) {
       setBoard(board)
+      console.log("chenges")
       setPosibility([[" ", " ", " ", " ", " ", " ", " ", " "],
       [" ", " ", " ", " ", " ", " ", " ", " "],
       [" ", " ", " ", " ", " ", " ", " ", " "],
