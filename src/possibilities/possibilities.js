@@ -309,7 +309,7 @@ const getPossibilitiesforHorse = (i, j, newBoard, currentPlayer) => {
 
 }
 const getPossibilitiesforQueen = (m, n, newBoard, currentPlayer) => {
-  let directions = ["left", "right", "top", "down"], k, canStop, i, j
+  // let directions = ["left", "right", "top", "down"], k, canStop, i, j
   var elephantPossibities = getPossibilitiesforElephant(m, n, newBoard, currentPlayer)
   var camelPossiblities = getPossibilitiesforCamel(m, n, newBoard, currentPlayer)
   for (let k = 0; k < camelPossiblities.length; k++) {
@@ -318,7 +318,7 @@ const getPossibilitiesforQueen = (m, n, newBoard, currentPlayer) => {
   return (elephantPossibities)
 }
 const getPossibilitiesforKing = (m, n, newBoard, currentPlayer) => {
-  let possibilities = [[m + 1 > 7 ? m : m + 1, n], [m - 1 < 0 ? m : m - 1, n], [m, n + 1 > 7 ? n : n + 1], [m, n - 1 < 0 ? n : n - 1], [m + 1 > 7 ? m : m + 1, n + 1 > 7 ? n : n], [m - 1 < 0 ? m : m - 1, n + 1 > 7 ? n : n + 1], [m - 1 < 0 ? m : m - 1, n - 1 < 0 ? n : n - 1], [m + 1 > 7 ? m : m + 1, n - 1 < 0 ? n : n - 1]], k, i, j
+  let possibilities = [[m + 1 > 7 ? m : m + 1, n], [m - 1 < 0 ? m : m - 1, n], [m, n + 1 > 7 ? n : n + 1], [m, n - 1 < 0 ? n : n - 1], [m + 1 > 7 ? m : m + 1, n + 1 > 7 ? n : n+1], [m - 1 < 0 ? m : m - 1, n + 1 > 7 ? n : n + 1], [m - 1 < 0 ? m : m - 1, n - 1 < 0 ? n : n - 1], [m + 1 > 7 ? m : m + 1, n - 1 < 0 ? n : n - 1]], k, i, j
   var isvalid = [m + 1 > 7, m - 1 < 0, n + 1 > 7, n - 1 < 0, m + 1 > 7 || n + 1 > 7, m - 1 < 0 || n + 1 > 7, m - 1 < 0 || n - 1 < 0, m + 1 > 7 || n - 1 < 0]
   for (k = 0; k < possibilities.length; k++) {
     if (newBoard[possibilities[k][0]][possibilities[k][1]] !== " ") {
@@ -366,11 +366,15 @@ const possibilities = (element, i, j, currentPlayer, newBoard) => {
       break;
     case "♕":
     case "♛":
-      var allPossibilities = getPossibilitiesforKing(i, j, newBoard, currentPlayer)
+      // var allPossibilities = getPossibilitiesforKing(i, j, newBoard, currentPlayer)
+      var allPossibilities = getPossibilitiesforQueen(i, j, newBoard, currentPlayer)
+
       break;
     case "♔":
     case "♚":
-      var allPossibilities = getPossibilitiesforQueen(i, j, newBoard, currentPlayer)
+      var allPossibilities = getPossibilitiesforKing(i, j, newBoard, currentPlayer)
+
+      // var allPossibilities = getPossibilitiesforQueen(i, j, newBoard, currentPlayer)
       break;
     case "♙":
     case "♟":
