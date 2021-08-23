@@ -309,7 +309,6 @@ const getPossibilitiesforHorse = (i, j, newBoard, currentPlayer) => {
 
 }
 const getPossibilitiesforQueen = (m, n, newBoard, currentPlayer) => {
-  // let directions = ["left", "right", "top", "down"], k, canStop, i, j
   var elephantPossibities = getPossibilitiesforElephant(m, n, newBoard, currentPlayer)
   var camelPossiblities = getPossibilitiesforCamel(m, n, newBoard, currentPlayer)
   for (let k = 0; k < camelPossiblities.length; k++) {
@@ -366,7 +365,6 @@ const possibilities = (element, i, j, currentPlayer, newBoard) => {
       break;
     case "♕":
     case "♛":
-      // var allPossibilities = getPossibilitiesforKing(i, j, newBoard, currentPlayer)
       var allPossibilities = getPossibilitiesforQueen(i, j, newBoard, currentPlayer)
 
       break;
@@ -374,7 +372,6 @@ const possibilities = (element, i, j, currentPlayer, newBoard) => {
     case "♚":
       var allPossibilities = getPossibilitiesforKing(i, j, newBoard, currentPlayer)
 
-      // var allPossibilities = getPossibilitiesforQueen(i, j, newBoard, currentPlayer)
       break;
     case "♙":
     case "♟":
