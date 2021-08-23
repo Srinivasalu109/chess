@@ -328,6 +328,7 @@ const getPossibilitiesforKing = (m, n, newBoard, currentPlayer) => {
           isvalid[k] = true
         }
       }
+    
       else {
         var coin = black_coins.filter(coin => coin === newBoard[possibilities[k][0]][possibilities[k][1]])
         if (coin.length == 0) {
