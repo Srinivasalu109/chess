@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import "./styles/chess.css"
 import { useState, useEffect } from "react"
 import { board, possibilities, empty_board } from './possibilities/possibilities';
@@ -67,9 +66,10 @@ function App() {
   }
   const handleClick = (element, i, j) => {
     if (!isGameOver) {
+      var checkit=[]
       if (turn % 2 === 0) {
         console.log("noentry")
-        var checkit = black_coins.filter(coin => coin === element)
+         checkit = black_coins.filter(coin => coin === element)
         if (checkit.length) {
           currenElement = element
           u = i
@@ -88,7 +88,7 @@ function App() {
         }
       }
       else {
-        var checkit = white_coins.filter(coin => coin === element)
+         checkit = white_coins.filter(coin => coin === element)
         if (checkit.length) {
           currenElement = element
           u = i
