@@ -1,3 +1,4 @@
+/*eslint-disable*/
 import "./styles/chess.css"
 import { useState, useEffect } from "react"
 import { board, possibilities, empty_board } from './possibilities/possibilities';
@@ -64,18 +65,17 @@ function App() {
     [" ", " ", " ", " ", " ", " ", " ", " "],])
     setTurn(turn + 1)
   }
+  
   const handleClick = (element, i, j) => {
     if (!isGameOver) {
       var checkit=[]
       if (turn % 2 === 0) {
-        console.log("noentry")
          checkit = black_coins.filter(coin => coin === element)
         if (checkit.length) {
           currenElement = element
           u = i
           v = j
           currentPlayer = "black_player"
-          console.log(empty_board.slice())
           setPosibility([[" ", " ", " ", " ", " ", " ", " ", " "],
           [" ", " ", " ", " ", " ", " ", " ", " "],
           [" ", " ", " ", " ", " ", " ", " ", " "],
